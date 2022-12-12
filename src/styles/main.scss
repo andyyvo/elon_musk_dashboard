@@ -1,0 +1,60 @@
+// sass --watch src/styles/main.scss src/App.css
+
+@use "./variables" as v;
+@import "./variables";
+@import "./components/searchbar";
+@import "./components/twittercard";
+@import "./components/tag";
+@import "./pages/dashboardpage";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+h1, h2, h3, h4, h5, p, body {
+  font-family: v.$helvetica;
+}
+
+body {
+  font-size: v.$p;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: v.$h1;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: v.$h2;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: v.$h3;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: v.$h4;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: v.$h5;
+  font-weight: 400;
+}
+
+p {
+  font-size: v.$p;
+  font-weight: 400;
+}
+
+.right-align {
+  text-align: right;
+}

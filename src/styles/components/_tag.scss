@@ -1,0 +1,40 @@
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid #14171A;
+  border-radius: 8px;
+  margin: 0.25rem 0.25rem;
+
+  &.tesla {
+    background-color: #cc0000;
+    color: #fff;
+  }
+
+  &.space {
+    background-color: #005288;
+    color: #fff;
+  }
+
+  &.energy {
+    background-color: #29B675;
+    color: #fff;
+  }
+
+  &.work {
+    background-color: #FE5000;
+    color: #fff;
+  }
+
+  &.misc {
+    background-color: #1DA1F2;
+    color: #fff;
+  }
+}
+
+.tag:first-child {
+  margin: 0.25rem 0.25rem 0.25rem 0rem;
+}
+
+.tag:last-child {
+  margin: 0.25rem 0rem 0.25rem 0.25rem;
+}

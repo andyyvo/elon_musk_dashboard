@@ -1,0 +1,27 @@
+.dashboardpage {
+  width: 100%;
+}
+
+.tweets {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.moreTweets {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > button.moreTweets-btn {
+    cursor: pointer;
+    width: 50%;
+    background-color: #1DA1F2;
+    color: #fff;
+    padding: 0.5rem 0rem;
+    border: 1px solid #14171A;
+    border-radius: 8px;
+  }
+}
