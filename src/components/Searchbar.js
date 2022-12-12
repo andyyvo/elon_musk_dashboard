@@ -12,7 +12,7 @@ import { DataContext } from "../pages/DashboardPage";
  */
 export const Searchbar = () => {
   /* LOAD IN SOME CONTEXT STATES */
-  const { availableTweets, setTweetsFiltered } = useContext(DataContext);
+  const { availableTweets, tweetsFiltered, setTweetsFiltered } = useContext(DataContext);
 
   /* SEARCH BAR STATE */
   const [userInput, setUserInput] = React.useState("");
@@ -23,14 +23,10 @@ export const Searchbar = () => {
       // console.log(data.length)
       // console.log(availableTweets.length)
       setTweetsFiltered(availableTweets);
-      // return data.length;
     } else {
       // console.log(data.filter((d) => d['tweet'].includes(query)).length)
-      // console.log(availableTweets.length)
-      console.log('b')
+      console.log(tweetsFiltered.length)
       setTweetsFiltered(data.filter((d) => d['tweet'].includes(query)));
-      console.log('c')
-      // return data.filter((d) => d['tweet'].includes(query)).length;
     }
   }
 

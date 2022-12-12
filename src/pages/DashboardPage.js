@@ -28,11 +28,6 @@ export const DashboardPage = () => {
     setNumLoaded(numLoaded + 99);
   }
 
-  /* RE-RENDER WHEN LOAD MORE */
-  useEffect(() => {
-    setTweetsFiltered(db.slice(0, numLoaded))
-  }, [numLoaded])
-
   /* RE-RENDER WHEN SEARCH QUERY CHANGES */
   useEffect(() => {
     // console.log("num loaded " + numLoaded)
