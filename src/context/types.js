@@ -1,0 +1,2 @@
+export const SEARCH_TWEET = 'SEARCH_TWEET';
+export const CLEAR_SEARCH = 'CLEAR_SEARCH';

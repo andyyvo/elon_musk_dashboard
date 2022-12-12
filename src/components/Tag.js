@@ -8,7 +8,7 @@ import React from "react";
 export const Tag = (props) => {
   const tag = React.useState(props.name);
   let classname = "tag ";
-  console.log(tag);
+  // console.log(tag);
 
   if (tag[0] === "tesla") {
     classname += "tesla"

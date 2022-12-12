@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import TextField from "@mui/material/TextField";
+
+/* IMPORTING CONTEXT FROM DASHBOARD PAGE */
+import { DataContext } from "../pages/DashboardPage";
 
 /**
  * Searchbar will serve as a nav bar for the whole app. There will
@@ -8,6 +11,37 @@ import TextField from "@mui/material/TextField";
  * tweets.
  */
 export const Searchbar = () => {
+  /* LOAD IN SOME CONTEXT STATES */
+  const { availableTweets, setTweetsFiltered } = useContext(DataContext);
+
+  /* SEARCH BAR STATE */
+  const [userInput, setUserInput] = React.useState("");
+
+  /* FILTER THROUGH OUR DATA */
+  const searchTweets = (query, data) => {
+    if (!query) {
+      // console.log(data.length)
+      // console.log(availableTweets.length)
+      setTweetsFiltered(availableTweets);
+      // return data.length;
+    } else {
+      // console.log(data.filter((d) => d['tweet'].includes(query)).length)
+      // console.log(availableTweets.length)
+      console.log('b')
+      setTweetsFiltered(data.filter((d) => d['tweet'].includes(query)));
+      console.log('c')
+      // return data.filter((d) => d['tweet'].includes(query)).length;
+    }
+  }
+
+  /* RE-RENDER PAGE UPON EVERY USER INPUT */
+  useEffect(() => {
+    // console.log(userInput)
+    searchTweets(userInput, availableTweets);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userInput])
+
   return (
     <div className="header">
       <div className="nav">
@@ -25,6 +59,10 @@ export const Searchbar = () => {
           label="Search a tweet"
           variant="filled"
           helperText="Feel free to search up any tweets!"
+          onChange={(e) => {
+            setUserInput(e.target.value.toLowerCase())
+          }}
+          placeholder="Search..."
         />
       </div>
     </div>
