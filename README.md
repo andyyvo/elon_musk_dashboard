@@ -1,6 +1,6 @@
 # The Musk Machine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Find the dashboard at [https://andyvo.com/elon_musk_dashboard/](https://andyvo.com/elon_musk_dashboard/).
 
 ## Overview
 
