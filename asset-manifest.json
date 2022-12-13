@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/elon_musk_dashboard/static/css/main.c4f46647.css",
+    "main.js": "/elon_musk_dashboard/static/js/main.02454273.js",
+    "index.html": "/elon_musk_dashboard/index.html",
+    "main.c4f46647.css.map": "/elon_musk_dashboard/static/css/main.c4f46647.css.map",
+    "main.02454273.js.map": "/elon_musk_dashboard/static/js/main.02454273.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c4f46647.css",
+    "static/js/main.02454273.js"
+  ]
+}
