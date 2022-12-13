@@ -11,6 +11,12 @@ export const DataContext = createContext();
  * all of Elon Musk's tweets.
  * 
  * Data is statically hosted as JSON data.
+ * 
+ * Flow is as follows:
+ * 1. data is stored as a state in availableTweets to have a full copy
+ * 2. tweetsFiltered will be a copy of availableTweets for filters
+ * 3. numLoaded allows us to slice tweetsFiltered at any point
+ * 4. changes made in Filter.js and Searchbar.js will be applied to the tweetsFiltered useEffect
  */
 export const DashboardPage = () => {
   /* LOADING TWEETS STATE */
