@@ -23,7 +23,7 @@ export const Twittercard = (props) => {
       <div className="twittercard-header">
         <div className="bio">
           <div className="pfp">
-            <img src="/Elon_Musk.jpg" alt="Elon Musk" />
+            <img src={process.env.PUBLIC_URL + "/Elon_Musk.jpg"} alt="Elon Musk" />
           </div>
           <div className="names">
             <div className="name"><h4><b>Elon Musk</b></h4></div>
@@ -42,15 +42,15 @@ export const Twittercard = (props) => {
       </div>
       <div className="twittercard-stats">
         <div className="stat">
-          <img src="/reply.png" alt="Replies" className="icon" />
+          <img src={process.env.PUBLIC_URL + "/reply.png"} alt="Replies" className="icon" />
           <h5 className="">{props.num_replies}</h5>
         </div>
         <div className="stat">
-          <img src="/retweet.png" alt="Retweets" className="icon" />
+          <img src={process.env.PUBLIC_URL + "/retweet.png"} alt="Retweets" className="icon" />
           <h5 className="">{props.num_retweets}</h5>
         </div>
         <div className="stat">
-          <img src="/heart.png" alt="Likes" className="icon" />
+          <img src={process.env.PUBLIC_URL + "/heart.png"} alt="Likes" className="icon" />
           <h5 className="">{props.num_likes}</h5>
         </div>
       </div>
