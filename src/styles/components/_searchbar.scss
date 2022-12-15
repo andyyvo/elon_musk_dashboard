@@ -13,6 +13,10 @@
     flex-direction: row;
     justify-content: space-between;
 
+    .home > a {
+      text-decoration: none;
+    }
+
     .links {
       display: flex;
       justify-content: end;
@@ -21,6 +25,18 @@
   }
 
   .search {
-    padding: 2rem 8rem 0rem;
+    padding: 2rem 10% 0rem;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .header .search {
+    padding: 2rem 7.5% 0rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .header .search {
+    padding: 2rem 5% 0rem;
   }
 }

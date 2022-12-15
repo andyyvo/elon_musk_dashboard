@@ -2,6 +2,28 @@
 /* SIZES */
 /* FONTS */
 /* SIZES */
+.filters {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 2rem 5%;
+}
+
+.filter-groups {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 850px) {
+  .filter-groups {
+    display: flex;
+    flex-direction: column;
+  }
+  .filter-groups .filter {
+    margin: 1rem 0;
+  }
+}
 .header {
   position: relative;
   width: 100%;
@@ -17,15 +39,28 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.header .nav .home > a {
+  text-decoration: none;
+}
 .header .nav .links {
   display: flex;
   justify-content: end;
   align-items: center;
 }
 .header .search {
-  padding: 2rem 8rem 0rem;
+  padding: 2rem 10% 0rem;
 }
 
+@media screen and (max-width: 1350px) {
+  .header .search {
+    padding: 2rem 7.5% 0rem;
+  }
+}
+@media screen and (max-width: 850px) {
+  .header .search {
+    padding: 2rem 5% 0rem;
+  }
+}
 .twittercard {
   background-color: #fff;
   width: 26.5%;

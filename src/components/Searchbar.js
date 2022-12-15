@@ -33,7 +33,8 @@ export const Searchbar = () => {
   /* RE-RENDER PAGE UPON EVERY USER INPUT */
   useEffect(() => {
     // console.log(userInput)
-    searchTweets(userInput, availableTweets);
+    // searchTweets(userInput, availableTweets);
+    // console.log(dateState);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInput])
@@ -42,11 +43,11 @@ export const Searchbar = () => {
     <div className="header">
       <div className="nav">
         <div className="home">
-          <a href="/"><h1>The Musk Machine</h1></a>
+          <a href="/elon_musk_dashboard"><h1>The Musk Machine</h1></a>
         </div>
         <div className="links">
-          <a href="/" className="link"><h4>link 1</h4></a>
-          <a href="/" className="link"><h4>link 2</h4></a>
+          {/* <a href="/" className="link"><h4>link 1</h4></a>
+          <a href="/" className="link"><h4>link 2</h4></a> */}
         </div>
       </div>
       <div className="search">
@@ -56,7 +57,8 @@ export const Searchbar = () => {
           variant="filled"
           helperText="Feel free to search up any tweets!"
           onChange={(e) => {
-            setUserInput(e.target.value.toLowerCase())
+            setUserInput(e.target.value.toLowerCase());
+            searchTweets(userInput, availableTweets);
           }}
           placeholder="Search..."
         />

@@ -1,4 +1,5 @@
 import React, { useEffect, createContext } from "react"
+import { Filter } from "../components/Filter";
 import { Searchbar } from "../components/Searchbar";
 import { Twittercard } from "../components/Twittercard"
 import db from "../data/df_elon_musk.json"
@@ -24,6 +25,11 @@ export const DashboardPage = () => {
   const [numLoaded, setNumLoaded] = React.useState(99);
   const [tweetsFiltered, setTweetsFiltered] = React.useState(availableTweets);
 
+  /* FILTER STATES */
+  const [dateState, setDateState] = React.useState("ascending");
+  const [sentimentState, setSentimentState] = React.useState("");
+  const [labelState, setLabelState] = React.useState("");
+
   /* CONVERTING SENTIMENT VALUE TO PERCENTAGE */
   const sentiment_to_percent = (pos, neu, neg) => {
     return [(pos*100).toFixed(1), (neu*100).toFixed(1), (neg*100).toFixed(1)]
@@ -36,7 +42,7 @@ export const DashboardPage = () => {
 
   /* RE-RENDER WHEN SEARCH QUERY CHANGES */
   useEffect(() => {
-    // console.log("num loaded " + numLoaded)
+    /* search bar changes */
     if (tweetsFiltered.length === 0) {
       setNumLoaded(0);
     } else if (tweetsFiltered.length <= 99) {
@@ -44,7 +50,8 @@ export const DashboardPage = () => {
     } else {
       setNumLoaded(99);
     }
-  }, [tweetsFiltered])
+    // console.log("num loaded " + numLoaded)
+  }, [tweetsFiltered, dateState, sentimentState]);
 
   return (
     <DataContext.Provider
@@ -54,31 +61,44 @@ export const DashboardPage = () => {
         numLoaded,
         setNumLoaded,
         tweetsFiltered,
-        setTweetsFiltered
+        setTweetsFiltered,
+        dateState,
+        setDateState,
+        sentimentState,
+        setSentimentState,
+        labelState,
+        setLabelState
       }}
     >
       <div className="dashboardpage">
         <Searchbar />
-        <div className="tweets">
-          {tweetsFiltered.slice(0,numLoaded).map((tweet, index) => (
-            <>
-            <Twittercard
-              key={index}
-              sentiment={sentiment_to_percent(tweet.pos_sent, tweet.neu_sent, tweet.neg_sent)}
-              content={tweet.tweet}
-              date={tweet.date}
-              num_replies={tweet.num_replies}
-              num_retweets={tweet.num_retweets}
-              num_likes={tweet.num_likes}
-              tags={Object.values(tweet.labels)}
-            />
-            </>
-          ))}
-        </div>
-        <div className="moreTweets">
-          <button className="moreTweets-btn" onClick={handleOnClick}>
-            <h4><b>View More</b></h4>
-          </button>
+        <div className="dashboardpage-contents">
+          <div className="filter-content">
+            <Filter />
+          </div>
+          <div className="tweet-content">
+            <div className="tweets">
+              {tweetsFiltered.slice(0,numLoaded).map((tweet, index) => (
+                <>
+                <Twittercard
+                  key={index}
+                  sentiment={sentiment_to_percent(tweet.pos_sent, tweet.neu_sent, tweet.neg_sent)}
+                  content={tweet.tweet}
+                  date={tweet.date}
+                  num_replies={tweet.num_replies}
+                  num_retweets={tweet.num_retweets}
+                  num_likes={tweet.num_likes}
+                  tags={Object.values(tweet.labels)}
+                />
+                </>
+              ))}
+            </div>
+            <div className="moreTweets">
+              <button className="moreTweets-btn" onClick={handleOnClick}>
+                <h4><b>View More</b></h4>
+              </button>
+            </div>
+          </div>
         </div>
         {/* {JSON.stringify(db)} */}
         {/* {typeof(db)} */}
